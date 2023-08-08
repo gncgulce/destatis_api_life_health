@@ -114,6 +114,18 @@ for country in countries:
 
 
 
+# TODO: get KPI
+# "Lebensbedingungen"
+# kpi_life = (bruttos_normal - houses_normal - foods_normal) (len=32)
+kpi_life_de = (bruttos_normal['Deutschland'] - houses_normal['Deutschland'] - foods_normal['Deutschland'])
+kpi_life_ir = (bruttos_normal['Irland'] - houses_normal['Irland'] - foods_normal['Irland'])
+kpi_life_tr = (bruttos_normal['Türkei'] - houses_normal['Türkei'] - foods_normal['Türkei'])
+# "Gesundheit"
+# kpi_health = (doctors_normal + beds_normal - deaths_normal) (len=31)
+kpi_health_de = (doctors_normal['Deutschland'] + beds_normal['Deutschland'] - deaths_normal['Deutschland'])
+kpi_health_ir = (doctors_normal['Irland'] + beds_normal['Irland'] - deaths_normal['Irland'])
+kpi_health_tr = (doctors_normal['Türkei'] + beds_normal['Türkei'] - deaths_normal['Türkei'])
+
 
 
 
