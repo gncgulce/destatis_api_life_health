@@ -46,3 +46,25 @@ def get_data(name: str, user: str, pw: str):
     data_str_rows = data_str.split('\n')
     return data_str_rows
 
+
+# MAKE TIDY AND GET DATAFRAME
+def get_dataframe(topics, countries, years, input_data):
+    collect = {topics: [], countries: []}
+    for year in years:
+        collect[year] = []
+
+
+    for i, row in enumerate (input_data):
+        split_row = row.split(';')
+        collect[topics].append(split_row[1] + ' [' + split_row[2] + ']')
+        collect[countries].append(split_row[0])
+
+        for j, year in enumerate(years):
+            collect[year].append(to_float(split_row[3+j]))
+
+    df1 = pd.DataFrame(collect)
+    df2 = df1.set_index([topics, countries])
+    topics_vals = df1[topics].unique()  # get all unique "Topics"
+    countries_vals = df1[countries].unique()  # get all unique "Countries"
+    return df1, df2, topics_vals, countries_vals
+
