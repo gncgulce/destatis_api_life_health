@@ -89,6 +89,31 @@ for country in countries:
                                                         country=country, data=df_2)
 
 
+# TODO: get_normalized
+# "Lebensbedingungen"
+bruttos_normal = {}
+for country in countries:
+    bruttos_normal[country] = get_normalized(tc=bruttos_country[country], max=bruttos_max)
+houses_normal = {}
+for country in countries:
+    houses_normal[country] = get_normalized(tc=houses_country[country], max=houses_max)
+foods_normal = {}
+for country in countries:
+    foods_normal[country] = get_normalized(tc=foods_country[country], max=foods_max)
+# "Gesundheit"
+doctors_normal = {}
+for country in countries:
+    doctors_normal[country] = get_normalized(tc=doctors_country[country], max=doctors_max)
+beds_normal = {}
+for country in countries:
+    beds_normal[country] = get_normalized(tc=beds_country[country], max=beds_max)
+deaths_normal = {}
+for country in countries:
+    deaths_normal[country] = get_normalized(tc=deaths_country[country], max=deaths_max)
+
+
+
+
 
 
 

@@ -87,6 +87,14 @@ def get_one_topic_and_country(topics, country, data):
     return tc
 
 
+# TO NORMAlIZED
+def get_normalized(tc, max):
+    normalized = tc / max
+    return normalized
+
+
+
+
 
 
 def get_plot(topics, countries, years, data):
