@@ -78,3 +78,18 @@ def get_topic_max_val(topics, years, data):
         max.append(np.max(data[year][topics, :]))
     max = np.array(max)
     return max
+
+
+
+def get_plot(topics, countries, years, data):
+    x = years  # "Years" ax x-axis
+    for topic in topics:
+        fig, ax = plt.subplots()
+        fig.suptitle(topic)
+        for country in countries:
+            y = data.loc[topic, country].tolist()  # get the values for the y-axis
+            ax.plot(x, y)
+        ax.set_xlabel('year')
+        ax.set_ylabel(topic)
+        ax.legend(countries)
+        ax.grid(linestyle=':')

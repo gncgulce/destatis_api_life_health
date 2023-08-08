@@ -56,3 +56,9 @@ beds_max = get_topic_max_val(topics='Krankenhausbetten je 10 000 Einwohner [Anza
                              years=health3_val_int, data=df_2)
 deaths_max = get_topic_max_val(topics='Gestorbene Säuglinge je 1000 Lebendgeborene [Anzahl]',
                                years=health3_val_int, data=df_2)
+
+# TODO: get_plot()
+countries = ['Deutschland', 'Irland', 'Türkei']
+get_plot(topics=topics_unique1, countries=countries, years=life3_val_int, data=df2)
+get_plot(topics=topics_unique2, countries=countries, years=health3_val_int, data=df_2)
+plt.show()
