@@ -1,7 +1,7 @@
 """
 
 """
-from general_functions import get_data, get_dataframe
+from general_functions import get_data, get_dataframe, get_topic_max_val
 from os import environ
 
 # TODO: get_data() and tidy
