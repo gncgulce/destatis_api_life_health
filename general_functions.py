@@ -2,8 +2,6 @@ import requests
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-
-
 def to_float(val_str):
     if val_str.isnumeric():
         return float(val_str)
@@ -11,11 +9,6 @@ def to_float(val_str):
         return float(val_str.replace(',', '.'))
     else:
         return np.nan
-
-
-
-
-
 #LOGIN AND GET DATA
 def get_data(name: str, user: str, pw: str):
     area = "all"  # "all"
@@ -45,32 +38,22 @@ def get_data(name: str, user: str, pw: str):
     data_str = data['Object']['Content']
     data_str_rows = data_str.split('\n')
     return data_str_rows
-
-
-# MAKE TIDY AND GET DATAFRAME
+# MAKE TIDY
 def get_dataframe(topics, countries, years, input_data):
     collect = {topics: [], countries: []}
     for year in years:
         collect[year] = []
-
-
     for i, row in enumerate (input_data):
         split_row = row.split(';')
         collect[topics].append(split_row[1] + ' [' + split_row[2] + ']')
         collect[countries].append(split_row[0])
-
         for j, year in enumerate(years):
             collect[year].append(to_float(split_row[3+j]))
-
     df1 = pd.DataFrame(collect)
     df2 = df1.set_index([topics, countries])
     topics_vals = df1[topics].unique()  # get all unique "Topics"
     countries_vals = df1[countries].unique()  # get all unique "Countries"
     return df1, df2, topics_vals, countries_vals
-
-
-
-
 # GET THE MAX VALUES
 def get_topic_max_val(topics, years, data):
     max = []
@@ -78,25 +61,15 @@ def get_topic_max_val(topics, years, data):
         max.append(np.max(data[year][topics, :]))
     max = np.array(max)
     return max
-
-
-
 # GET ONE TOPIC AND COUNTRY
 def get_one_topic_and_country(topics, country, data):
     tc = np.array(data.loc[topics, country])
     return tc
-
-
 # TO NORMAlIZED
 def get_normalized(tc, max):
     normalized = tc / max
     return normalized
-
-
-
-
-
-
+#GET PLOT
 def get_plot(topics, countries, years, data):
     x = years  # "Years" ax x-axis
     for topic in topics:
