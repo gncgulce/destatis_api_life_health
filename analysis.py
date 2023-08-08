@@ -57,6 +57,44 @@ beds_max = get_topic_max_val(topics='Krankenhausbetten je 10 000 Einwohner [Anza
 deaths_max = get_topic_max_val(topics='Gestorbene Säuglinge je 1000 Lebendgeborene [Anzahl]',
                                years=health3_val_int, data=df_2)
 
+
+
+# TODO: get_one_topic_and_country
+# "Lebensbedingungen"
+countries = ['Deutschland', 'Irland', 'Türkei']
+bruttos_country = {}
+for country in countries:
+    bruttos_country[country] = get_one_topic_and_country(topics='Bruttonationaleinkommen je Einwohner,Atlas-Methode [US $]',
+                                                         country=country, data=df2)
+houses_country = {}
+for country in countries:
+    houses_country[country] = get_one_topic_and_country(topics='Ausgabenanteil priv. Haushalte für Wohnung [Prozent]',
+                                                        country=country, data=df2)
+foods_country = {}
+for country in countries:
+    foods_country[country] = get_one_topic_and_country(topics='Ausgabenanteil priv. Haushalte für Nahrungsmittel [Prozent]',
+                                                       country=country, data=df2)
+# "Gesundheit"
+doctors_country = {}
+for country in countries:
+    doctors_country[country] = get_one_topic_and_country(topics='Ärztedichte je 10 000 Einwohner [Anzahl]',
+                                                         country=country, data=df_2)
+beds_country = {}
+for country in countries:
+    beds_country[country] = get_one_topic_and_country(topics='Krankenhausbetten je 10 000 Einwohner [Anzahl]',
+                                                      country=country, data=df_2)
+deaths_country = {}
+for country in countries:
+    deaths_country[country] = get_one_topic_and_country(topics='Gestorbene Säuglinge je 1000 Lebendgeborene [Anzahl]',
+                                                        country=country, data=df_2)
+
+
+
+
+
+
+
+
 # TODO: get_plot()
 countries = ['Deutschland', 'Irland', 'Türkei']
 get_plot(topics=topics_unique1, countries=countries, years=life3_val_int, data=df2)

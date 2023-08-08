@@ -81,6 +81,14 @@ def get_topic_max_val(topics, years, data):
 
 
 
+# GET ONE TOPIC AND COUNTRY
+def get_one_topic_and_country(topics, country, data):
+    tc = np.array(data.loc[topics, country])
+    return tc
+
+
+
+
 def get_plot(topics, countries, years, data):
     x = years  # "Years" ax x-axis
     for topic in topics:
