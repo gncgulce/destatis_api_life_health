@@ -14,3 +14,11 @@ life2 = data_str_rows[2].split(';')[0].split(',')[0].strip()  # countries
 life3 = data_str_rows[2].split(';')[0].split(',')[1].strip()  # years
 life3_val_str = data_str_rows[4].split(';')[3:]  # years-str
 life3_val_int = [int(leb_str) for leb_str in life3_val_str]  # years-int
+
+
+
+
+# TODO: get_dataframe()
+
+df1, df2, topics_unique1, countries_unique1 = get_dataframe(topics=life1, countries=life2, years=life3_val_int,
+                                                            input_data=data_str_rows[5:-11])
