@@ -33,3 +33,26 @@ df1, df2, topics_unique1, countries_unique1 = get_dataframe(topics=life1, countr
 
 df_1, df_2, topics_unique2, countries_unique2 = get_dataframe(topics=health1, countries=health2, years=health3_val_int,
                                                               input_data=data_str_rows2[4:-12])
+
+
+
+# TODO: get_topic_max_val
+
+
+# "Lebensbedingungen"
+
+bruttos_max = get_topic_max_val(topics='Bruttonationaleinkommen je Einwohner,Atlas-Methode [US $]',
+                                years=life3_val_int, data=df2)
+houses_max = get_topic_max_val(topics='Ausgabenanteil priv. Haushalte für Wohnung [Prozent]',
+                               years=life3_val_int, data=df2)
+foods_max = get_topic_max_val(topics='Ausgabenanteil priv. Haushalte für Nahrungsmittel [Prozent]',
+                              years=life3_val_int, data=df2)
+# "Gesundheit"
+
+
+doctors_max = get_topic_max_val(topics='Ärztedichte je 10 000 Einwohner [Anzahl]',
+                                years=health3_val_int, data=df_2)
+beds_max = get_topic_max_val(topics='Krankenhausbetten je 10 000 Einwohner [Anzahl]',
+                             years=health3_val_int, data=df_2)
+deaths_max = get_topic_max_val(topics='Gestorbene Säuglinge je 1000 Lebendgeborene [Anzahl]',
+                               years=health3_val_int, data=df_2)

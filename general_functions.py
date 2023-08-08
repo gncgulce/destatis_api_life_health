@@ -68,3 +68,13 @@ def get_dataframe(topics, countries, years, input_data):
     countries_vals = df1[countries].unique()  # get all unique "Countries"
     return df1, df2, topics_vals, countries_vals
 
+
+
+
+# GET THE MAX VALUES
+def get_topic_max_val(topics, years, data):
+    max = []
+    for year in years:
+        max.append(np.max(data[year][topics, :]))
+    max = np.array(max)
+    return max
