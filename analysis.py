@@ -2,6 +2,7 @@
 """
 from general_functions import get_data, get_dataframe, get_topic_max_val, get_one_topic_and_country, get_normalized
 from os import environ
+import matplotlib.pyplot as plt
 # TODO: get_data() and tidy
 user = environ.get('USER')
 pw = environ.get('PW')
