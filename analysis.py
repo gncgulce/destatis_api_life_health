@@ -1,6 +1,6 @@
 """
 """
-from general_functions import get_data, get_dataframe, get_topic_max_val, get_plot, get_one_topic_and_country, get_normalized
+from general_functions import get_data, get_dataframe, get_topic_max_val, get_one_topic_and_country, get_normalized
 from os import environ
 # TODO: get_data() and tidy
 user = environ.get('USER')
@@ -100,7 +100,27 @@ kpi_health_de = (doctors_normal['Deutschland'] + beds_normal['Deutschland'] - de
 kpi_health_ir = (doctors_normal['Irland'] + beds_normal['Irland'] - deaths_normal['Irland'])
 kpi_health_tr = (doctors_normal['Türkei'] + beds_normal['Türkei'] - deaths_normal['Türkei'])
 # TODO: get_plot()
-countries = ['Deutschland', 'Irland', 'Türkei']
-get_plot(topics=topics_unique1, countries=countries, years=life3_val_int, data=df2)
-get_plot(topics=topics_unique2, countries=countries, years=health3_val_int, data=df_2)
+
+plt.figure(figsize=plt.figaspect(0.4))
+plt.subplot(1, 2, 1)
+plt.plot(life3_val_int, kpi_life_de, color='red')
+plt.plot(life3_val_int, kpi_life_ir, color='green')
+plt.plot(life3_val_int, kpi_life_tr, color='blue')
+plt.xlabel("Years")
+plt.ylabel("Figure of merit [a.u.]")
+plt.legend(['Germany', 'Ireland', 'Turkey'])
+plt.title('Life')
+plt.grid(linestyle="--")
+
+plt.subplot(1, 2, 2)
+plt.plot(health3_val_int, kpi_health_de, color='red')
+plt.plot(health3_val_int, kpi_health_ir, color='green')
+plt.plot(health3_val_int, kpi_health_tr, color='blue')
+plt.xlabel("Years")
+plt.ylabel("Figure of merit [a.u.]")
+plt.legend(['Germany', 'Ireland', 'Turkey'])
+plt.title('Health')
+plt.grid(linestyle="--")
+
+plt.tight_layout()
 plt.show()
